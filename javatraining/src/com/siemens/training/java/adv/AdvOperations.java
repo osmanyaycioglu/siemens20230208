@@ -17,7 +17,7 @@ public class AdvOperations {
 				return true;
 			}
 		}
-		
+
 		if (adv.getGenderCheck() != null) {
 			if (person.getGender() == adv.getGenderCheck()) {
 				return true;
@@ -31,7 +31,24 @@ public class AdvOperations {
 //		} else if (adv.getAgeMin() != null && person.getAge() > adv.getAgeMin()) {
 //				return true;
 //		}
-
+		if (adv.getHairColorCheck() != null) {
+			if (person.getHairColor() == adv.getHairColorCheck()) {
+				return true;
+			}
+		}
+		if (adv.getHeightMin() != null && adv.getHeightMax() != null) {
+			if (person.getHeight() > adv.getHeightMin() && person.getHeight() < adv.getHeightMax()) {
+				return true;
+			}
+		} else if (adv.getHeightMax() != null) {
+			if (person.getHeight() < adv.getHeightMax()) {
+				return true;
+			}
+		} else if (adv.getHeightMin() != null) {
+			if (person.getHeight() > adv.getHeightMin()) {
+				return true;
+			}
+		}
 		return false;
 	}
 

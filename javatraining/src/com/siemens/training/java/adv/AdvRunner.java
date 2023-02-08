@@ -1,5 +1,7 @@
 package com.siemens.training.java.adv;
 
+import javax.management.modelmbean.ModelMBeanNotificationBroadcaster;
+
 public class AdvRunner {
 	public static void main(String[] args) {
 		AdvPerson osman = new AdvPerson(EGender.MALE, 53, EHairColor.BLACK,200);
@@ -9,7 +11,21 @@ public class AdvRunner {
 		AdvPerson ayse = new AdvPerson(EGender.FEMALE, 25, EHairColor.BLOND,155);
 		AdvPerson tempPerson = osman;
 		
-		osman.setAge(ayse.getAge());
+		Adv adv = new Adv();
+		adv.setAdvText("Sampuan Reklami");
+		adv.setAgeMin(20);
+		adv.setAgeMax(40);
+		adv.setGenderCheck(EGender.FEMALE);
+		
+		AdvOperations advOperations = new AdvOperations();
+		AdvScore checkScore = advOperations.checkScore(ayse, adv);
+		
+		System.out.println(checkScore);
+		if(checkScore.getWeight()>4) {
+			System.out.println(adv.getAdvText());
+		}
+		
+		/*osman.setAge(ayse.getAge());
 		osman.setGender(ayse.getGender());
 		osman.setHairColor(ayse.getHairColor());
 		
@@ -32,7 +48,8 @@ public class AdvRunner {
 		osman.getAge();
 		mehmet.getAge();
 		osman = tempPerson;
-		osman.getAge();
+		osman.getAge();*/
+		
 		
 		
 	}

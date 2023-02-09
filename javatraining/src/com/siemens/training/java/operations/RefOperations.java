@@ -5,7 +5,9 @@ import com.siemens.training.java.pkg.Car;
 import a.b.c.TestClass;
 
 public class RefOperations {
+    
 	public static void main(String[] args) {
+	    int abc = 123;
 		Car car = new Car(100, 100, 30); // memory 1
 		Car car2 = new Car(200, 150, 10);
 		Car car3 = null;
@@ -14,6 +16,10 @@ public class RefOperations {
 		Car car6 = car5;
 		Car car7 = car4;
 		car = null;
+		car = new Car(abc, 300, 50);
+		car.effectiveness();
+		car2.effectiveness();
+		car4.effectiveness();
 		System.out.println("Car 4 ref : " + car4.getSpeed());
 		System.out.println("Car 5 ref : " + car5.getSpeed());
 		System.out.println("Car 6 ref : " + car6.getSpeed());
@@ -27,4 +33,7 @@ public class RefOperations {
 		testClass.test();
 				
 	}
+	
+	public static void name() {
+    }
 }

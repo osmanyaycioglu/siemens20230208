@@ -1,0 +1,4 @@
+osman, yaycıoğlu,200,100
+ali,veli ,190,120
+ayşe,alaz ,165 ,55
+ali,denem,30

@@ -3,6 +3,7 @@ package com.siemens.training.java.calculator;
 public class CalculatorRunner {
 
     public static void main(String[] args) {
+
         Calculator cal1 = new Calculator();
         Calculator cal2 = new Calculator();
         double addResult = Calculator.add(10,

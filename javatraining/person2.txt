@@ -1,0 +1,4 @@
+osman, test,200,100
+ali,kala ,190,120
+ayşe,fatma ,165 ,55
+ali,denem,30

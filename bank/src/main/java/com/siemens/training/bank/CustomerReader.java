@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerReader {
@@ -13,6 +14,7 @@ public class CustomerReader {
         try {
             List<String> readAllLinesLoc = Files.readAllLines(Paths.get(filenameParam),
                                                               Charset.forName("UTF-8"));
+            List<Customer> customersLoc = new ArrayList<>();
             for (String lineLoc : readAllLinesLoc) {
                 String[] splitLoc = lineLoc.split(",");
                 if (splitLoc.length != 5) {
@@ -23,7 +25,10 @@ public class CustomerReader {
                                                     splitLoc[2],
                                                     splitLoc[3]);
                 customerLoc.parseAccounts(splitLoc[4]);
+                customersLoc.add(customerLoc);
+
             }
+            return customersLoc;
         } catch (IOException e) {
             e.printStackTrace();
             return null;

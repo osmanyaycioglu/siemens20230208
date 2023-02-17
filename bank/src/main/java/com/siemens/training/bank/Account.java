@@ -60,4 +60,15 @@ public class Account {
         this.balance = balanceParam;
     }
 
+    @Override
+    public String toString() {
+        return "Account [accountName="
+               + this.accountName
+               + ", accountType="
+               + this.accountType
+               + ", balance="
+               + this.balance
+               + "]";
+    }
+
 }

@@ -86,4 +86,19 @@ public class Customer {
         this.accountList = accountListParam;
     }
 
+    @Override
+    public String toString() {
+        return "Customer [name="
+               + this.name
+               + ", surname="
+               + this.surname
+               + ", username="
+               + this.username
+               + ", password="
+               + this.password
+               + ", accountList="
+               + this.accountList
+               + "]";
+    }
+
 }

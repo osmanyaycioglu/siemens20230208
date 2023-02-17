@@ -38,13 +38,29 @@ public class AniamalRunner {
         doAllObjectActions(carLoc);
         doAllObjectActions(kangrooLoc);
         doAllObjectActions(bulldogLoc);
-
+        IAnimal an1 = new Kangroo("zıpzıpır");
+        System.out.println(an1.move(100));
+        System.out.println(an1.sleep(8));
+        an1.eat(100);
+        an1.voice();
+        doAllAnimalAllActions(kangrooLoc,
+                              100);
+        doAllAnimalAllActions(bulldogLoc,
+                              100);
     }
 
     public static void doAllAnimalActions(Animal animalParam,
                                           int eatAmount) {
         System.out.println("Kalori : " + animalParam.eat(eatAmount));
         System.out.println("ses : " + animalParam.voice());
+    }
+
+    public static void doAllAnimalAllActions(IAnimal animalParam,
+                                             int eatAmount) {
+        System.out.println("Kalori : " + animalParam.eat(eatAmount));
+        System.out.println("ses : " + animalParam.voice());
+        System.out.println("Haraket : " + animalParam.move(100));
+        System.out.println("Uyuma : " + animalParam.sleep(10));
     }
 
     private static void doAllObjectActions(Object objectParam) {

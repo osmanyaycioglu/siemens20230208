@@ -22,6 +22,14 @@ public class Account {
         this.balance = balanceParam;
     }
 
+    public void deposit(final BigDecimal depositAmountParam) {
+        this.balance = this.balance.add(depositAmountParam);
+    }
+
+    public void withdraw(final BigDecimal depositAmountParam) {
+        this.balance = this.balance.subtract(depositAmountParam);
+    }
+
     // xyz#DOLAR#540
     public void parseAccount(final String accStringParam) throws BankException {
         if (accStringParam == null) {

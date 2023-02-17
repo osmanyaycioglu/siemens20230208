@@ -101,4 +101,13 @@ public class Customer {
                + "]";
     }
 
+    public Account findAccount(final EAccountType accountTypeParam) {
+        for (Account accountLoc : this.accountList) {
+            if (accountLoc.getAccountType() == accountTypeParam) {
+                return accountLoc;
+            }
+        }
+        return null;
+    }
+
 }

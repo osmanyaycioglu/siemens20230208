@@ -11,7 +11,7 @@ public class AccountOpTest {
     Account accountLoc;
 
     @BeforeEach
-    public void xyz() {
+    void xyz() {
         // Setup
         this.accountLoc = new Account();
         this.accountLoc.setBalance(new BigDecimal(100));

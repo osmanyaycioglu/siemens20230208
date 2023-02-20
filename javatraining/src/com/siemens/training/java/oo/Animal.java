@@ -1,6 +1,7 @@
 package com.siemens.training.java.oo;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Animal implements IAnimal {
 
@@ -44,6 +45,35 @@ public class Animal implements IAnimal {
     @Override
     public void close() throws IOException {
         System.out.println("closing animal");
+    }
+
+    @Override
+    public String toString() {
+        return "Animal [animalType=" + this.animalType + ", name=" + this.name + "]";
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.animalType,
+                            this.name);
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+        Animal other = (Animal) obj;
+        return Objects.equals(this.animalType,
+                              other.animalType)
+               && Objects.equals(this.name,
+                                 other.name);
     }
 
 }

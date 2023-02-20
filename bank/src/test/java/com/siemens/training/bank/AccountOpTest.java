@@ -1,9 +1,8 @@
 package com.siemens.training.bank;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.math.BigDecimal;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -34,8 +33,10 @@ public class AccountOpTest {
         // Test
         this.accountLoc.withdraw(new BigDecimal(70));
         // Validate
-        assertEquals(new BigDecimal(30),
-                     this.accountLoc.getBalance());
+        Assertions.assertEquals(new BigDecimal(30),
+                                this.accountLoc.getBalance());
+        Assertions.assertNotEquals(new BigDecimal(170),
+                                   this.accountLoc.getBalance());
     }
 
     @Test

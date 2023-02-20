@@ -40,6 +40,9 @@ public class Customer {
     }
 
     public void addAccount(final Account accountParam) {
+        if (accountParam == null) {
+            return;
+        }
         if (this.accountList == null) {
             this.accountList = new ArrayList<>();
         }

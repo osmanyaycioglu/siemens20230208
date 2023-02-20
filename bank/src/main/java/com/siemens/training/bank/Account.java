@@ -27,7 +27,7 @@ public class Account {
     }
 
     public void withdraw(final BigDecimal depositAmountParam) {
-        this.balance = this.balance.subtract(depositAmountParam);
+        this.balance = this.balance.add(depositAmountParam);
     }
 
     // xyz#DOLAR#540

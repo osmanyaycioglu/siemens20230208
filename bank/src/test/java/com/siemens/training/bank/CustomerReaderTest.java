@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
-class AccountTest {
+class CustomerReaderTest {
 
     @BeforeAll
     static void setUpBeforeClass() throws Exception {
@@ -28,12 +28,7 @@ class AccountTest {
     }
 
     @Test
-    void testDeposit() {
-        fail("Not yet implemented");
-    }
-
-    @Test
-    void testWithdraw() {
+    void testReadCustomers() {
         fail("Not yet implemented");
     }
 

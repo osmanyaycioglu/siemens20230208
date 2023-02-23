@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d967ffa3-2966-484c-b95f-96baf7ac4dd6" name="Changes" comment="day 14 4" />
+    <list default="true" id="d967ffa3-2966-484c-b95f-96baf7ac4dd6" name="Changes" comment="day 14 4">
+      <change afterPath="$PROJECT_DIR$/../rest-project/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../rest-project/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../rest-project/src/main/resources/application.properties_old" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,7 +114,7 @@
       <option name="presentableId" value="Default" />
       <updated>1677068615383</updated>
       <workItem from="1677068616725" duration="3179000" />
-      <workItem from="1677132145338" duration="9800000" />
+      <workItem from="1677132145338" duration="11722000" />
     </task>
     <task id="LOCAL-00001" summary="day 14 1">
       <created>1677140067619</created>

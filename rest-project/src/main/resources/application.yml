@@ -1,0 +1,12 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+server:
+  error:
+    include-exception: 'true'
+    include-binding-errors: always
+    include-message: always
+    whitelabel:
+      enabled: true

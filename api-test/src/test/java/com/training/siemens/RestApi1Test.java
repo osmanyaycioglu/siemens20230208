@@ -6,6 +6,7 @@ import static org.hamcrest.Matchers.*;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -43,13 +44,13 @@ public class RestApi1Test {
     }
 
     private String provisionAddJson = "{\n"
-                                      + "    \"firstName\": \"ali\",\n"
-                                      + "    \"lastName\": \"veli\",\n"
-                                      + "    \"height\": 200,\n"
+                                      + "    \"firstName\": \"#name#\",\n"
+                                      + "    \"lastName\": \"#surname#\",\n"
+                                      + "    \"height\": #height#,\n"
                                       + "    \"weight\": 75,\n"
                                       + "    \"birthDate\": \"1981-10-11\",\n"
                                       + "    \"address\": {\n"
-                                      + "        \"city\": \"istanbul\",\n"
+                                      + "        \"city\": \"#city#\",\n"
                                       + "        \"street\": \"kadıköy\"\n"
                                       + "    },\n"
                                       + "    \"nicknames\": [\n"
@@ -72,8 +73,16 @@ public class RestApi1Test {
 
     @Test
     public void test_api_person_provision_add_new_person() {
+        String replace = provisionAddJson.replace("#name#",
+                                                  "ali")
+                                         .replace("#surname#",
+                                                  "veli")
+                                         .replace("#height#",
+                                                  "185")
+                                         .replace("#city#",
+                                                  "istanbul");
         given().contentType(ContentType.JSON)
-               .body(provisionAddJson)
+               .body(replace)
                .when()
                .post("/api/v1/person/provision/add")
                .then()
@@ -87,18 +96,118 @@ public class RestApi1Test {
                .body("person.lastName",
                      equalTo("veli"))
                .body("person.height",
-                     equalTo(200))
+                     equalTo(185))
                .body("person.weight",
                      equalTo(75))
                .body("person.address.city",
                      equalTo("istanbul"))
                .body("person.address.street",
-                     equalTo("kadıkö"))
+                     equalTo("kadıköy"))
                .body("person.nicknames",
                      hasItems("aliv",
                               "alvi",
                               "aliş"))
         ;
+    }
+
+    @Test
+    public void test_api_person_provision_get_with_new_person() {
+        String replace1 = provisionAddJson.replace("#name#",
+                                                   "ali")
+                                          .replace("#surname#",
+                                                   "veli")
+                                          .replace("#height#",
+                                                   "185")
+                                          .replace("#city#",
+                                                   "istanbul");
+        String replace2 = provisionAddJson.replace("#name#",
+                                                   "osman")
+                                          .replace("#surname#",
+                                                   "yay")
+                                          .replace("#height#",
+                                                   "200")
+                                          .replace("#city#",
+                                                   "adana");
+        Response personResponse1 = given().contentType(ContentType.JSON)
+                                          .body(replace1)
+                                          .when()
+                                          .post("/api/v1/person/provision/add")
+                                          .then()
+                                          .statusCode(200)
+                                          .body("personId",
+                                                any(Integer.class))
+                                          .extract()
+                                          .response();
+        Response personResponse2 = given().contentType(ContentType.JSON)
+                                          .body(replace2)
+                                          .when()
+                                          .post("/api/v1/person/provision/add")
+                                          .then()
+                                          .statusCode(200)
+                                          .body("personId",
+                                                any(Integer.class))
+                                          .extract()
+                                          .response();
+
+        Integer personId1 = personResponse1.path("personId");
+        Integer personId2 = personResponse2.path("personId");
+        Assertions.assertNotEquals(personId1,
+                                   personId2);
+
+        System.out.println("Person1 id : " + personId1);
+        System.out.println("Person2 id : " + personId2);
+        given().pathParam("xyz",
+                          personId1)
+               .when()
+               .get("/api/v1/person/provision/get/{xyz}")
+               .then()
+               .body("firstName",
+                     equalTo("ali"))
+               .body("lastName",
+                     equalTo("veli"))
+               .body("height",
+                     equalTo(185))
+               .body("weight",
+                     equalTo(75))
+               .body("address.city",
+                     equalTo("istanbul"))
+               .body("address.street",
+                     equalTo("kadıköy"))
+               .body("nicknames",
+                     hasItems("aliv",
+                              "alvi",
+                              "aliş"));
+
+        given().pathParam("xyz",
+                          personId2)
+               .when()
+               .get("/api/v1/person/provision/get/{xyz}")
+               .then()
+               .body("firstName",
+                     equalTo("osman"))
+               .body("lastName",
+                     equalTo("yay"))
+               .body("height",
+                     equalTo(200))
+               .body("weight",
+                     equalTo(75))
+               .body("address.city",
+                     equalTo("adana"))
+               .body("address.street",
+                     equalTo("kadıköy"))
+               .body("nicknames",
+                     hasItems("aliv",
+                              "alvi",
+                              "aliş"));
+        given().pathParam("xyz",
+                          "39284732")
+               .when()
+               .get("/api/v1/person/provision/get/{xyz}")
+               .then()
+               .statusCode(500)
+               .body("message",
+                     equalTo("personId yok"));
+
     }
 
 }

@@ -27,7 +27,11 @@ public class PersonProvisionController {
 
     @GetMapping("/get/{id}")
     public Person getPerson(@PathVariable("id")  long personId) {
-        return personMap.get(personId);
+        Person person = personMap.get(personId);
+        if (person == null){
+            throw new IllegalArgumentException("personId yok");
+        }
+        return person;
     }
 
 }

@@ -10,3 +10,20 @@ server:
     include-message: always
     whitelabel:
       enabled: true
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: 123456
+    url: jdbc:postgresql://localhost:5432/test
+    username: postgres
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL94Dialect
+        format_sql: true
+        use_sql_comments: true
+        generate_statistics: true
+    show-sql: true

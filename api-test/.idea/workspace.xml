@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d967ffa3-2966-484c-b95f-96baf7ac4dd6" name="Changes" comment="day 14 4">
-      <change afterPath="$PROJECT_DIR$/../rest-project/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/training/siemens/HikariDbPool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../rest-project/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../rest-project/src/main/resources/application.properties_old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/training/siemens/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/training/siemens/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +50,20 @@
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.RestApi1Test">
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.training.siemens.App" />
+      <module name="api-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.training.siemens.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RestApi1Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="api-test" />
       <extension name="coverage">
@@ -99,6 +113,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.App" />
         <item itemvalue="JUnit.RestApi1Test" />
         <item itemvalue="JUnit.RestApi1Test.test_api_getPerson" />
         <item itemvalue="JUnit.RestApi1Test.first_test" />
@@ -114,7 +129,7 @@
       <option name="presentableId" value="Default" />
       <updated>1677068615383</updated>
       <workItem from="1677068616725" duration="3179000" />
-      <workItem from="1677132145338" duration="11722000" />
+      <workItem from="1677132145338" duration="14063000" />
     </task>
     <task id="LOCAL-00001" summary="day 14 1">
       <created>1677140067619</created>

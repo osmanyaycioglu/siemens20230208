@@ -1,6 +1,14 @@
 package com.siemens.training.restproject;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class Phone {
+    @Id
+    @GeneratedValue
+    private Long phoneId;
     private String name;
     private String number;
 
@@ -27,5 +35,13 @@ public class Phone {
 
     public void setNumber(String numberParam) {
         number = numberParam;
+    }
+
+    public Long getPhoneId() {
+        return phoneId;
+    }
+
+    public void setPhoneId(Long phoneIdParam) {
+        phoneId = phoneIdParam;
     }
 }

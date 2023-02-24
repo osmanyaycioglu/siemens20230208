@@ -1,6 +1,14 @@
 package com.siemens.training.restproject;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class Address {
+    @Id
+    @GeneratedValue
+    private Long addressId;
     private String city;
     private String street;
 

@@ -1,22 +1,28 @@
 package com.siemens.training.restproject;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 //POJO
 //DTO
+@Entity
+@Table(name = "person_data")
 public class Person {
-
+    @Id
+    @GeneratedValue
+    private Long          personId;
     @NotNull
     @NotEmpty
-    @Size(min = 2,max = 20)
+    @Size(min = 2, max = 20)
     private String        firstName;
     @NotNull
     @NotEmpty
-    @Size(min = 3,max = 25)
+    @Size(min = 3, max = 25)
     private String        lastName;
     @Min(50)
     @Max(300)
@@ -27,14 +33,18 @@ public class Person {
     @Past
     @NotNull
     private LocalDate     birthDate;
-    @Null
+    // @Null
     private LocalDateTime createdDateTime;
     @NotNull
+    @OneToOne(cascade = CascadeType.ALL)
     private Address       address;
     @NotNull
     @Size(min = 1)
-    private List<Phone>   phones;
-    private List<String>  nicknames;
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Phone>    phones;
+    @ElementCollection
+    @CollectionTable(name = "nick_names")
+    private Set<String>   nicknames;
 
     public Person() {
     }
@@ -138,19 +148,27 @@ public class Person {
         address = addressParam;
     }
 
-    public List<Phone> getPhones() {
+    public Long getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(Long personIdParam) {
+        personId = personIdParam;
+    }
+
+    public Set<Phone> getPhones() {
         return phones;
     }
 
-    public void setPhones(List<Phone> phonesParam) {
+    public void setPhones(Set<Phone> phonesParam) {
         phones = phonesParam;
     }
 
-    public List<String> getNicknames() {
+    public Set<String> getNicknames() {
         return nicknames;
     }
 
-    public void setNicknames(List<String> nicknamesParam) {
+    public void setNicknames(Set<String> nicknamesParam) {
         nicknames = nicknamesParam;
     }
 }
